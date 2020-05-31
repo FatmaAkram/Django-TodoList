@@ -2,9 +2,16 @@
 {% block content %}
 {% include 'layout/header.html' %}
 {% load static %}
+{% block 'additional_includes' %}
+<script src="{% static 'js/todo.js'%}"></script>
+{% endblock %}
+
 <style>
     .card-header {
         background-color:#FFDC23 !important;
+    }
+    .completed{
+        text-decoration : line-through;
     }
 
 </style>
@@ -18,8 +25,10 @@
         <ul class="list-group list-group-flush p-2">
             {% for item in todo_items %}
             <li class="list-group-item">
-                <label>
-                    <input type="checkbox">
+                <label class="{% if item.completed %} completed {% endif %}">
+                    <input type="checkbox"
+                           {% if item.completed %} checked {% endif %}
+                           onchange="toggleMark(this,{{ item.id }})">
                     {{item.title}}
                 </label>
                 <span class="float-right text-danger">X</span>
