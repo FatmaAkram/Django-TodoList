@@ -20,6 +20,6 @@ from todo import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('todos/', views.index),
-    # path('/todos/new', ),
+    path('todos/new', views.create),
     # path('/todos/<int:id>/delete', ),
 ]
