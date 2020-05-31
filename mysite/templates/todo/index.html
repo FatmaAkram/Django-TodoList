@@ -1,10 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% include 'layout/header.html' %}
-    {% load static %}
-    {% block 'additional_includes' %}
-    {% endblock %}
-    <div class="container">
+{% include 'layout/header.html' %}
+{% load static %}
+<style>
+    .card-header {
+        background-color:#FFDC23 !important;
+    }
 
+</style>
+
+<div class="container">
+    <div class="card shadow m-2 bg-white rounded mx-auto" style="width: 35rem">
+        <div class="card-header">My List</div>
+        <ul class="list-group list-group-flush p-2">
+            {% for item in todo_items %}
+            <li class="list-group-item">
+                <label>
+                    <input type="checkbox">
+                    {{item.title}}
+                </label>
+                <span class="float-right text-danger">X</span>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
+
+
+</div>
 {% endblock %}

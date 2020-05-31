@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-# Create your views here.
+from .models import Todo
 
 
 def index(request):
-    return render(request,'todo/index.html');
+    todo_items = Todo.objects.all()
+    return render(request,'todo/index.html',{'todo_items':todo_items});
