@@ -1,0 +1,29 @@
+{% load static %}
+<style>
+    nav {
+    background-color: #10031f!important;
+    }
+    nav a {
+        color: white !important;
+    }
+    nav a:not(.navbar-brand):hover {
+        color: #ff4b27 !important;
+        border-bottom : 1px solid #ff4b27;
+    }
+    .navbar-nav {
+        float: right !important;
+    }
+
+</style>
+<nav class="navbar navbar-expand-lg  ">
+    <a href="/todos" class="navbar-brand ">
+    <img class="logo" src="{% static 'images/navbar-logo.svg' %}" width="200" height="40" alt="logo"/>
+    </a>
+    <div class=" navbar-collapse " id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a href="/todos" class="nav-item nav-link active">
+            Home
+            </a>
+        </div>
+    </div>
+</nav>
