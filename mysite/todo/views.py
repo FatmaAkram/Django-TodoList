@@ -31,3 +31,12 @@ def mark_uncomplete(request):
 
     # some error occured
     return JsonResponse({"error": ""}, status=400)
+
+
+def delete(request):
+    if request.is_ajax and request.method == "POST":
+        item = Todo.objects.filter(id=request.POST['id']).delete()
+        return JsonResponse({"success": "true"}, status=200)
+
+    # some error occured
+    return JsonResponse({"error": ""}, status=400)

@@ -13,6 +13,9 @@
     .completed{
         text-decoration : line-through;
     }
+    span:hover{
+        cursor: pointer;
+    }
 
 </style>
 
@@ -23,6 +26,10 @@
     <div class="card shadow m-2 bg-white rounded mx-auto" style="width: 35rem">
         <div class="card-header">My List</div>
         <ul class="list-group list-group-flush p-2">
+             <p class="m-2 p-2 rounded alert-warning no-tasks" style="display : {% if todo_items.count  == 0 %}block{% else %}none{% endif %}">
+                 No Tasks Yet <strong>Add One !</strong>
+             </p>
+
             {% for item in todo_items %}
             <li class="list-group-item">
                 <label class="{% if item.completed %} completed {% endif %}">
@@ -31,7 +38,9 @@
                            onchange="toggleMark(this,{{ item.id }})">
                     {{item.title}}
                 </label>
-                <span class="float-right text-danger">X</span>
+                 <span
+                        class="float-right text-danger"
+                        onclick="deleteTask(this,{{ item.id }})">X</span>
             </li>
             {% endfor %}
         </ul>

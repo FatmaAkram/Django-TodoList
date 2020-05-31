@@ -1,7 +1,7 @@
 <div class="mt-4 mx-auto" style="width: 35rem">
     <form class="form-inline" action="/todos/new" method="post">
         {%csrf_token%}
-        <input
+        <input  required
                 type="text"
                 name="title"
                 class="form-control mr-2 "

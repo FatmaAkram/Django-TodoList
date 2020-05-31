@@ -8,4 +8,5 @@ urlpatterns = [
     path('todos/new', views.create),
     path('todos/complete', views.mark_complete),
     path('todos/uncomplete', views.mark_uncomplete),
+    path('todos/delete',views.delete ),
 ]

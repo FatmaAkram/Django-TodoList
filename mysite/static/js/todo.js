@@ -17,3 +17,21 @@ function toggleMark(obj,id){
         }
     })
 }
+function deleteTask(obj,id){
+    clickedTask = $(obj).parents('li');
+    $.ajax({
+        type: 'POST',
+        url: '/todos/delete',
+        data: {
+            id,
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+        },
+        success: function (response) {
+            clickedTask.remove();
+           $('li').length === 0 ? $('.no-tasks').show():'';
+        },
+        error: function (error) {
+            throw new Error(`Error!: ${error['statusText']}`);
+        }
+    })
+}
