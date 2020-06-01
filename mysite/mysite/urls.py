@@ -3,6 +3,7 @@ from django.urls import path
 from todo import views
 
 urlpatterns = [
+    path('', views.index),
     path('admin/', admin.site.urls),
     path('todos/', views.index),
     path('todos/new', views.create),
